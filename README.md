@@ -1,16 +1,79 @@
-# React + Vite
+# 🔐 Password Generator (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based password generator that allows users to create secure, customizable passwords.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Purpose of This Project
+This project was built to:
+- Practice **React Hooks**
+- Understand **state management**
+- Learn **clipboard access using useRef**
+- Build a small real-world utility app
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Tech Stack
+- React (Vite)
+- JavaScript (ES6)
+- Tailwind CSS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Features
+- Generate random passwords
+- Adjustable password length (slider)
+- Option to include:
+  - Numbers
+  - Special characters
+- Copy password to clipboard
+
+---
+
+## 🧠 React Concepts Used (IMPORTANT)
+
+### useState
+Used to manage:
+- Password length
+- Number toggle
+- Character toggle
+- Generated password
+
+---
+
+### useCallback
+Used to:
+- Optimize password generation function
+- Prevent unnecessary re-creation of functions
+
+---
+
+### useEffect
+Used to:
+- Automatically generate a new password when:
+  - Length changes
+  - Options change
+
+---
+
+### useRef
+Used to:
+- Access password input field
+- Select and copy password text to clipboard
+
+---
+
+## 🔐 Password Generation Logic (REVISION POINT)
+1. Create an empty string
+2. Add numbers if enabled
+3. Add special characters if enabled
+4. Loop based on selected length
+5. Pick random characters using `Math.random()`
+6. Store result in state
+
+---
+
+## 📋 Copy to Clipboard
+Uses browser Clipboard API:
+```js
+navigator.clipboard.writeText(password)
